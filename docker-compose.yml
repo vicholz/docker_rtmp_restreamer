@@ -1,0 +1,12 @@
+version: '2'
+services:
+ rtmp:
+  image: nginx/rtmp_restreamer:v1
+  volumes:
+   - ./etc/default/stunnel4:/etc/default/stunnel4
+   - ./etc/stunnel:/etc/stunnel
+   - ./etc/nginx/conf.d/rtmp-restreamer.conf:/etc/nginx/modules/rtmp-restreamer.conf
+  ports:
+   - 8000:80
+   - 1935:1935
+   - 19350:19350
